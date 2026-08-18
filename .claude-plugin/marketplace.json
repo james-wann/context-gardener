@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "james-wann",
+  "version": "1.0.0",
+  "description": "context-gardener: recurring context hygiene for AI coding assistants.",
+  "owner": {
+    "name": "James Wann",
+    "url": "https://github.com/james-wann"
+  },
+  "plugins": [
+    {
+      "name": "context-gardener",
+      "source": "./",
+      "description": "Audits an AI assistant's context docs for drift and repairs them safely, with backups. Loop-friendly."
+    }
+  ]
+}
