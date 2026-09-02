@@ -11,7 +11,7 @@
     {
       "name": "context-gardener",
       "source": "./",
-      "description": "Audits an AI assistant's context docs for drift and repairs them safely, with backups. Loop-friendly."
+      "description": "Audits an AI assistant's context docs for drift and stages fixes on a reviewable duplicate, applying to live only on your instruction. Loop-friendly."
     }
   ]
 }

@@ -1,6 +1,6 @@
 # context-gardener
 
-A Claude Code skill that treats your AI's context documents as code: it audits them for drift, reports what it finds ranked by how badly each issue could mislead a future session, and repairs them safely with backups. It is built to run read-only on a recurring loop, so your context stays accurate without you remembering to check.
+A Claude Code skill that treats your AI's context documents as code: it audits them for drift, reports what it finds ranked by how badly each issue could mislead a future session, and repairs them safely by staging every change on a duplicate for your review before anything live is touched. It is built to run read-only on a recurring loop, so your context stays accurate without you remembering to check.
 
 ## Why this exists
 
@@ -26,15 +26,15 @@ This was measured with an A/B evaluation across model tiers, not asserted. The h
 
 - On the weaker, cheaper models most people run day to day, it catches drift an unaided model misses and holds the model back from confident wrong "fixes".
 - On a top-tier model the detection edge shrinks, because a strong model already audits this well unaided.
-- What it does at **every** tier is the durable value: it backs up and previews before writing, it preserves the history a rename would otherwise flatten, and it gives you a repeatable, loopable procedure and a shared vocabulary for the checks.
+- What it does at **every** tier is the durable value: it stages every change on a duplicate and shows the diff before anything live moves, it preserves the history a rename would otherwise flatten, and it gives you a repeatable, loopable procedure and a shared vocabulary for the checks.
 
 It does not claim a universal win. The `SKILL.md` says the same.
 
 ## Modes
 
-- **report**, detect and report only, never writes. Safe for an unattended or scheduled run.
-- **review**, detect, report, then apply the fixes you approve. The default for a hands-on run.
-- **auto**, detect, report loudly, then apply in one pass, for a loop where you are present each iteration. Report-first and backups are non-negotiable here.
+- **report**, detect and report only, never writes or stages. Safe for an unattended or scheduled run.
+- **review** (default), detect, report, then stage every fix on a duplicate and show you the diffs. Nothing live is touched until you explicitly say apply.
+- **auto**, the same staging model on a loop where you are present each iteration. It reports the diffs loudly but still never touches a live file without your go.
 
 ## Install
 
@@ -57,9 +57,9 @@ On Windows, copy `skills\context-gardener` into `C:\Users\<you>\.claude\skills\`
 
 Just ask, in a session where the skill is installed:
 
-> Audit my context docs and tell me what's drifted or contradictory. Don't change anything yet.
+> Audit my context docs and tell me what's drifted or contradictory.
 
-That runs the report. To let it apply fixes, say so; it backs up first and shows you the change.
+It reports, then stages any fixes on a duplicate and shows you the diffs. Nothing live changes until you say apply.
 
 ## The recursive part: run it on a loop
 
@@ -67,7 +67,7 @@ The point is not to remember to run it. Wire it to a Claude Code **SessionStart 
 
 ## Safety
 
-Detection never writes. Applying always backs up first, never blind-renames (every reference is updated in the same pass), watches for the bulk-rename flatten trap, and re-verifies that nothing dangles afterwards. The scheduled loop is report-only and never applies changes on its own.
+Your live context files are never edited in place. Every change is staged on a duplicate and shown to you as a diff first; nothing is promoted to live without your explicit instruction, in any mode. Promotion never blind-renames (every reference is updated in the same pass), watches for the bulk-rename flatten trap, snapshots live first so it is reversible, and re-verifies that nothing dangles afterwards. The scheduled loop is report-only.
 
 ## Licence
 
