@@ -1,6 +1,5 @@
 {
   "name": "context-gardener",
-  "version": "1.0.0",
   "description": "Audit, reconcile, and prune the context documents an AI assistant loads (CLAUDE.md, AGENTS.md/GEMINI.md, memory, profile docs). Finds contradictions, stale claims, broken references, filename-vs-content drift, and two subtler failure modes; reports findings ranked by how badly each could mislead; stages fixes on a reviewable duplicate and applies to live only on your instruction. Runs read-only on a loop.",
   "author": {
     "name": "James Wann"
