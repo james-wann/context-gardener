@@ -1,6 +1,6 @@
 {
   "name": "context-gardener-cowork",
-  "description": "Context hygiene for Cowork and other hosted Claude surfaces, where the context that steers a session is a persistent memory store, a set of account skills and any connected folder rather than a local .claude directory. Runs the seven context-gardener drift checks against that surface, reports findings ranked by how badly each could mislead, stages every fix outside the loaded surface, and applies to the live memory store or a skill definition only on your instruction. Sibling to context-gardener, which covers the Claude Code file surface.",
+  "description": "Context hygiene for Cowork and other hosted Claude surfaces, where the context that steers a session is a persistent memory store, account skills and any connected folder rather than a local .claude directory. Runs the seven context-gardener drift checks, ranks findings by how badly each could mislead, stages fixes outside the loaded surface, and writes to live memory or a skill only on your instruction. Sibling to context-gardener, for the Claude Code file surface.",
   "author": {
     "name": "James Wann"
   }

@@ -1,24 +1,17 @@
 ---
 name: context-gardener-cowork
 description: >-
-  Audit, reconcile, consolidate and prune the context that steers a hosted Claude session in Cowork
-  or claude.ai: the persistent memory store (profile, preferences, topics, areas, people), the
-  account skills whose descriptions decide what triggers and whose bodies decide what happens, the
-  installed plugins, and any CLAUDE.md / AGENTS.md / GEMINI.md inside a connected folder. Finds
-  internal and cross-document contradictions, skill trigger collisions, description-vs-body drift,
-  claims that have gone stale against the real filesystem or git, broken references, references that
-  resolve but do not contain what they promised, and dangerous gaps left where a document covers only
-  the harmless case; reports findings ranked by how likely each is to mislead, stages every fix
-  outside the loaded surface, and writes to the live memory store or a skill definition only on
-  instruction. Use this whenever the user asks to audit, review, clean up, reconcile, consolidate,
-  prune, tidy or "garden" their memory, preferences, skills, plugins or instruction files; says their
-  memory or skills are drifting, going stale, contradicting each other or triggering wrongly; asks
-  "is what Claude knows about me still accurate", "why did the wrong skill fire" or "what's out of
-  date in my setup"; wants their setup checked before handing it to a colleague; or wants recurring
-  context hygiene on a schedule. Trigger even when the user does not say the word "context" but is
-  clearly asking to reconcile or sanity-check the things that steer the assistant. For a local
-  Claude Code file surface (a ~/.claude directory, project CLAUDE.md, an @-include tree), use the
-  sibling skill context-gardener instead.
+  Audit, reconcile and prune the context that steers a hosted Claude session in Cowork or
+  claude.ai: the persistent memory store, the account skills whose descriptions decide what
+  triggers and whose bodies decide what happens, installed plugins, and any CLAUDE.md or AGENTS.md
+  in a connected folder. Finds contradictions, skill trigger collisions, description-vs-body
+  drift, claims gone stale against filesystem or git, broken references, references that resolve
+  without delivering what they promised, and gaps where a document covers only the harmless case.
+  Ranks findings by how badly each could mislead, stages fixes outside the loaded surface, and
+  writes to live memory or a skill only on instruction. Use when the user asks to audit, clean up,
+  reconcile, prune or garden their memory, preferences, skills or plugins; says these are
+  drifting, stale or triggering wrongly; asks why the wrong skill fired; or wants recurring
+  context hygiene. For a local Claude Code file surface use context-gardener.
 ---
 
 # Context Gardener (Cowork)
