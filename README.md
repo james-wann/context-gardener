@@ -8,6 +8,13 @@ A Claude Code skill that treats your AI's context documents as code: it audits t
 
 The leverage in working with AI has moved from wording prompts to engineering the context the model works from. This skill maintains that context as a first-class job.
 
+## Two versions, pick your surface
+
+- **Claude Code / local** (`skills/context-gardener`) audits a local file surface: `~/.claude/CLAUDE.md`, project `CLAUDE.md`, an `@`-include tree, a `MEMORY.md` index. Install with the plugin commands below.
+- **Cowork / hosted** (`context-gardener-cowork/`) is for Cowork and other hosted Claude surfaces, where the steering context is a persistent memory store, account skills and connected folders rather than local files. Add it through your hosted app's skill settings. See [`context-gardener-cowork/README.md`](context-gardener-cowork/README.md).
+
+Install the one that matches where you work. They share the same seven checks and the same stage-before-you-touch-live safety model.
+
 ## What it checks
 
 Seven checks, run in order, each ranked by how badly it could mislead:
@@ -49,9 +56,17 @@ On Windows, copy `skills\context-gardener` into `C:\Users\<you>\.claude\skills\`
 **Option B, as a plugin.**
 
 ```
-/plugin marketplace add james-wann/context-gardener
+/plugin marketplace add https://github.com/james-wann/context-gardener.git
 /plugin install context-gardener@james-wann
 ```
+
+**Keeping it updated.** The plugin tracks this repo, so pushed changes reach you automatically. To force a refresh:
+
+```
+/plugin marketplace update james-wann
+```
+
+On other tools (Codex, Cursor, Gemini CLI), re-pull the skill folder or use that tool's own update mechanism.
 
 ## Run it
 

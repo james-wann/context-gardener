@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "james-wann",
+  "version": "1.0.0",
+  "description": "context-gardener-cowork: recurring context hygiene for Cowork and other hosted Claude surfaces.",
+  "owner": {
+    "name": "James Wann",
+    "url": "https://github.com/james-wann"
+  },
+  "plugins": [
+    {
+      "name": "context-gardener-cowork",
+      "source": "./",
+      "description": "Audits the context that steers a hosted Claude session (persistent memory store, account skills, connected folders) for drift, stages fixes outside the loaded surface, and writes to live memory or a skill definition only on your instruction. Report-only on a schedule."
+    }
+  ]
+}
